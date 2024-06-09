@@ -13,16 +13,16 @@ function getComputerChoice() {
 
 // Get the user choice
 
-// function getHumanChoice() {
-//   console.log("Choose One of this : ");
-//   console.log("1) - rock");
-//   console.log("2) - paper");
-//   console.log("3) - scissor");
+function getHumanChoice() {
+  console.log("Choose One of this : ");
+  console.log("1) - rock");
+  console.log("2) - paper");
+  console.log("3) - scissor");
 
-//   let choice = prompt("Enter your choice here : ");
+  let choice = prompt("Enter your choice here : ");
 
-//   return choice;
-// }
+  return choice;
+}
 
 // // choice = getHumanChoice();
 
