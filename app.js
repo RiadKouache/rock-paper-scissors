@@ -27,59 +27,59 @@ function getHumanChoice() {
 function playGame() {
   // // Single Round
 
-  function playRound(
-    humanChoice,
-    computerChoice,
-    resultContainer,
-    roundSpanSelection
-  ) {
-    roundSpanSelection.forEach((span) => {
-      if (humanChoice === "rock" && computerChoice === "paper") {
-        computerScore++;
-        console.log("You loose! Paper beats Rock");
-        if ((span.id = "playerScore")) {
-          span.innerHTML = humanScore;
-        }
-      } else if (humanChoice === "rock" && computerChoice === "scissor") {
-        console.log("You Win! Rock beats Scissor");
-        humanScore++;
-      } else if (humanChoice === "rock" && computerChoice === "rock") {
-        console.log("Equality! Rock Rock");
-      } else if (humanChoice === "paper" && computerChoice === "paper") {
-        console.log("Equality! Paper Paper");
-      } else if (humanChoice === "paper" && computerChoice === "scissor") {
-        console.log("You Loose! Scissor beats Paper");
-        computerScore++;
-      } else if (humanChoice === "paper" && computerChoice === "rock") {
-        console.log("You Win! Paper beats Rock");
-        humanScore++;
-      } else if (humanChoice === "scissor" && computerChoice === "paper") {
-        console.log("You Win! Scissor beats Paper");
-        humanScore++;
-      } else if (humanChoice === "scissor" && computerChoice === "scissor") {
-        console.log("Equality! Scissor Scissor");
-      } else if (humanChoice === "scissor" && computerChoice === "rock") {
-        console.log("You Loose! Rock beats Scissor");
-        computerScore++;
-      }
-    });
+  function playRound(humanChoice, computerChoice, displayChoice, displayScore) {
+    if (humanChoice === "rock" && computerChoice === "paper") {
+      computerScore++;
+      resultSpan = "You loose! Paper beats Rock";
+    } else if (humanChoice === "rock" && computerChoice === "scissor") {
+      resultSpan = "You Win! Rock beats Scissor";
+      humanScore++;
+    } else if (humanChoice === "rock" && computerChoice === "rock") {
+      resultSpan = "Equality! Rock Rock";
+    } else if (humanChoice === "paper" && computerChoice === "paper") {
+      resultSpan = "Equality! Paper Paper";
+    } else if (humanChoice === "paper" && computerChoice === "scissor") {
+      resultSpan = "You Loose! Scissor beats Paper";
+      computerScore++;
+    } else if (humanChoice === "paper" && computerChoice === "rock") {
+      resultSpan = "You Win! Paper beats Rock";
+      humanScore++;
+    } else if (humanChoice === "scissor" && computerChoice === "paper") {
+      resultSpan = "You Win! Scissor beats Paper";
+      humanScore++;
+    } else if (humanChoice === "scissor" && computerChoice === "scissor") {
+      resultSpan = "Equality! Scissor Scissor";
+    } else if (humanChoice === "scissor" && computerChoice === "rock") {
+      resultSpan = "You Loose! Rock beats Scissor";
+      computerScore++;
+    }
+
+    resultArray = [
+      resultSpan,
+      computerChoice,
+      humanChoice,
+      computerScore,
+      humanScore,
+    ];
+
+    return resultArray;
   }
 
   const gameSelectionContainer = document.querySelector(".gameChoice");
   const gameSelection = document.querySelectorAll("button");
 
   const resultContainer = document.querySelector("gameChoice");
+  const displayChoice = document.querySelector(".display-choice");
+  const displayScore = document.querySelector(".display-score");
   // const roundSpanSelection = document.querySelectorAll("span");
 
   gameSelection.forEach((selection) => {
     selection.addEventListener("click", () => {
       let humanChoice = selection.value;
       let computerChoice = getComputerChoice();
-      playRound(
-        humanChoice,
-        computerChoice,
-        resultContainer,
-        roundSpanSelection
+
+      console.log(
+        playRound(humanChoice, computerChoice, displayChoice, displayScore)
       );
     });
   });
