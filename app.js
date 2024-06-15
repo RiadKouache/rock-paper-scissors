@@ -28,8 +28,6 @@ function playGame() {
   // // Single Round
 
   function playRound(humanChoice, computerChoice) {
-    humanChoice.toLowerCase();
-
     if (humanChoice === "rock" && computerChoice === "paper") {
       console.log("You loose! Paper beats Rock");
       computerScore++;
@@ -56,6 +54,17 @@ function playGame() {
       computerScore++;
     }
   }
+
+  const gameSelectionContainer = document.querySelector(".gameChoice");
+  const gameSelection = document.querySelectorAll("button");
+
+  gameSelection.forEach((selection) => {
+    selection.addEventListener("click", () => {
+      let humanChoice = selection.value;
+      let computerChoice = getComputerChoice();
+      playRound(humanChoice, computerChoice);
+    });
+  });
 
   //  Score variables
 
