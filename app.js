@@ -9,19 +9,6 @@ function getComputerChoice() {
   return choice;
 }
 
-// Get the user choice
-
-function getHumanChoice() {
-  console.log("Choose One of this : ");
-  console.log("1) - rock");
-  console.log("2) - paper");
-  console.log("3) - scissor");
-
-  let choice = prompt("Enter your choice here : ");
-
-  return choice;
-}
-
 // Play the entire game for 5 rounds
 
 function playGame() {
@@ -65,55 +52,66 @@ function playGame() {
     return resultArray;
   }
 
-  const gameSelectionContainer = document.querySelector(".gameChoice");
+  const gameSelectionContainer = document.querySelector(".game-choice");
   const gameSelection = document.querySelectorAll("button");
 
-  const resultContainer = document.querySelector("gameChoice");
+  const resultContainer = document.querySelector(".game-round");
   const displayChoice = document.querySelector(".display-choice");
   const displayScore = document.querySelector(".display-score");
   // const roundSpanSelection = document.querySelectorAll("span");
-
-  gameSelection.forEach((selection) => {
-    selection.addEventListener("click", () => {
-      let humanChoice = selection.value;
-      let computerChoice = getComputerChoice();
-
-      resultArray = playRound(
-        humanChoice,
-        computerChoice,
-        displayChoice,
-        displayScore
-      );
-
-      displayChoice.innerHTML =
-        `
-       <span id="playerScore">Your Choice :` +
-        resultArray[2] +
-        ` </span>
-        <span id="computerScore">Computer Choice :` +
-        resultArray[1] +
-        ` </span>
-      `;
-
-      displayScore.innerHTML =
-        `
-       <span id="resultSpan">` +
-        resultArray[0] +
-        `</span>
-        <span id="playerScore">Your Score : ` +
-        resultArray[4] +
-        `</span>
-        <span id="computerScore">Computer Score : ` +
-        resultArray[3] +
-        `</span>
-      `;
-    });
-  });
 
   //  Score variables
 
   let humanScore = 0;
   let computerScore = 0;
+
+  gameSelection.forEach((selection) => {
+    selection.addEventListener("click", () => {
+      if (humanScore != 5 && computerScore != 5) {
+        resultContainer.classList.remove("display");
+        let humanChoice = selection.value;
+        let computerChoice = getComputerChoice();
+
+        resultArray = playRound(
+          humanChoice,
+          computerChoice,
+          displayChoice,
+          displayScore
+        );
+
+        displayChoice.innerHTML =
+          `
+<span id="playerScore">Your Choice :` +
+          resultArray[2] +
+          ` </span>
+<span id="computerScore">Computer Choice :` +
+          resultArray[1] +
+          ` </span>
+`;
+
+        displayScore.innerHTML =
+          `
+       <span id="resultSpan">` +
+          resultArray[0] +
+          `</span>
+        <span id="playerScore">Your Score : ` +
+          resultArray[4] +
+          `</span>
+    <span id="computerScore">Computer Score : ` +
+          resultArray[3] +
+          `</span>
+`;
+      } else if (humanScore === 5 || computerScore === 5) {
+        if (humanScore === 5) alert("Victory ! You reached 5 points");
+        else alert("Defeat ! The computer wins 5 points Haha");
+
+        humanScore = 0;
+        computerScore = 0;
+
+        resultContainer.classList.add("display");
+      }
+    });
+  });
 
   // Play the game :
   // for (let p = 0; p < 5; p++) {
