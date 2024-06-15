@@ -55,7 +55,7 @@ function playGame() {
   const gameSelectionContainer = document.querySelector(".game-choice");
   const gameSelection = document.querySelectorAll("button");
 
-  const resultContainer = document.querySelector(".game-round");
+  const resultContainer = document.querySelector(".display");
   const displayChoice = document.querySelector(".display-choice");
   const displayScore = document.querySelector(".display-score");
   // const roundSpanSelection = document.querySelectorAll("span");
@@ -68,7 +68,7 @@ function playGame() {
   gameSelection.forEach((selection) => {
     selection.addEventListener("click", () => {
       if (humanScore != 5 && computerScore != 5) {
-        resultContainer.classList.remove("display");
+        resultContainer.classList.add("game-round");
         let humanChoice = selection.value;
         let computerChoice = getComputerChoice();
 
@@ -108,32 +108,10 @@ function playGame() {
         humanScore = 0;
         computerScore = 0;
 
-        resultContainer.classList.add("display");
+        resultContainer.classList.remove("game-round");
       }
     });
   });
-
-  // Play the game :
-  // for (let p = 0; p < 5; p++) {
-  //   let humanChoice = getHumanChoice();
-  //   let computerChoice = getComputerChoice();
-
-  //   playRound(humanChoice, computerChoice);
-
-  //   if (p === 4) {
-  //     console.log("5 Rounds! End of the Game.");
-  //   }
-  // }
-
-  // console.log(humanScore, computerScore);
-
-  // if (humanScore > computerScore) {
-  //   return console.log("Victory!");
-  // } else if (humanScore < computerScore) {
-  //   return console.log("Defeat...");
-  // } else if (humanScore === computerScore) {
-  //   return console.log("Equality.");
-  // }
 }
 
 playGame();
