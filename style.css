@@ -1,3 +1,44 @@
+/* FOR JAVASCRIPT */
 .display {
   display: none;
+}
+
+/* MAIN STYLE */
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  font-family: "Rubik", monospace;
+
+  background-color: #009bd6;
+}
+
+.head-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 64px auto;
+  width: 70%;
+}
+
+.heading-primary {
+  color: #001f2b;
+  font-weight: bold;
+  font-size: 48px;
+
+  border: #001f2b solid 6px;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.subheading {
+  color: #001f2b;
+  font-size: 18px;
+  align-self: self-end;
+  padding: 2px;
+  border-bottom: #001f2b solid 2px;
 }
