@@ -26,6 +26,9 @@ function getHumanChoice() {
 
 function playGame() {
   // // Single Round
+  const resultContainer = document.querySelector("gameChoice");
+
+  const roundSpanSelection = document.querySelectorAll("span");
 
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock" && computerChoice === "paper") {
