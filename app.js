@@ -9,8 +9,6 @@ function getComputerChoice() {
   return choice;
 }
 
-// console.log(getComputerChoice());
-
 // Get the user choice
 
 function getHumanChoice() {
@@ -23,10 +21,6 @@ function getHumanChoice() {
 
   return choice;
 }
-
-// // choice = getHumanChoice();
-
-// playRound(humanChoice, computerChoice);
 
 // Play the entire game for 5 rounds
 
@@ -69,26 +63,26 @@ function playGame() {
   let computerScore = 0;
 
   // Play the game :
-  for (let p = 0; p < 5; p++) {
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
+  // for (let p = 0; p < 5; p++) {
+  //   let humanChoice = getHumanChoice();
+  //   let computerChoice = getComputerChoice();
 
-    playRound(humanChoice, computerChoice);
+  //   playRound(humanChoice, computerChoice);
 
-    if (p === 4) {
-      console.log("5 Rounds! End of the Game.");
-    }
-  }
+  //   if (p === 4) {
+  //     console.log("5 Rounds! End of the Game.");
+  //   }
+  // }
 
-  console.log(humanScore, computerScore);
+  // console.log(humanScore, computerScore);
 
-  if (humanScore > computerScore) {
-    return console.log("Victory!");
-  } else if (humanScore < computerScore) {
-    return console.log("Defeat...");
-  } else if (humanScore === computerScore) {
-    return console.log("Equality.");
-  }
+  // if (humanScore > computerScore) {
+  //   return console.log("Victory!");
+  // } else if (humanScore < computerScore) {
+  //   return console.log("Defeat...");
+  // } else if (humanScore === computerScore) {
+  //   return console.log("Equality.");
+  // }
 }
 
 playGame();
