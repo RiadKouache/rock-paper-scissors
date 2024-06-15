@@ -78,9 +78,35 @@ function playGame() {
       let humanChoice = selection.value;
       let computerChoice = getComputerChoice();
 
-      console.log(
-        playRound(humanChoice, computerChoice, displayChoice, displayScore)
+      resultArray = playRound(
+        humanChoice,
+        computerChoice,
+        displayChoice,
+        displayScore
       );
+
+      displayChoice.innerHTML =
+        `
+       <span id="playerScore">Your Choice :` +
+        resultArray[2] +
+        ` </span>
+        <span id="computerScore">Computer Choice :` +
+        resultArray[1] +
+        ` </span>
+      `;
+
+      displayScore.innerHTML =
+        `
+       <span id="resultSpan">` +
+        resultArray[0] +
+        `</span>
+        <span id="playerScore">Your Score : ` +
+        resultArray[4] +
+        `</span>
+        <span id="computerScore">Computer Score : ` +
+        resultArray[3] +
+        `</span>
+      `;
     });
   });
 
